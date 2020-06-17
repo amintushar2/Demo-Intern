@@ -17,3 +17,4 @@
 # https://medium.com/better-programming/recyclerview-expanded-1c1be424282c
 
 # https://stackoverflow.com/questions/23409217/android-clicking-multiple-checkboxes
+# https://www.brandcrowd.com/maker/logos/page3?SearchText=typography&Text=Ziron%27s%20kitchen&LogoStyle=0
