@@ -13,3 +13,6 @@
 
 
 # https://youtu.be/xJnXSdctEZM
+
+# https://medium.com/better-programming/recyclerview-expanded-1c1be424282c
+
