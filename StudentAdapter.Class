@@ -1,0 +1,73 @@
+package com.raslab.demodata;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.raslab.demodata.studentinfopojo.StudentInformation;
+
+import java.util.List;
+
+public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewholde> {
+
+    private Context context;
+    private List<StudentInformation>studentData;
+
+
+
+    public StudentAdapter(Context context, List<StudentInformation> studentData) {
+        this.context = context;
+        this.studentData = studentData;
+
+    }
+
+
+    public void setStudentData(List<StudentInformation> studentData) {
+        this.studentData = studentData;
+        notifyDataSetChanged();
+    }
+
+
+
+    @NonNull
+    @Override
+    public StudentViewholde onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.single_raw,parent,false);
+
+
+        return new StudentViewholde(view);
+    }
+
+
+    @Override
+    public void onBindViewHolder(@NonNull StudentViewholde holder, int position) {
+        holder.idTv.setText(studentData.get(position).getID().toString());
+        holder.nameTv.setText(studentData.get(position).getFirstMidName());
+
+        String enrloment = studentData.get(position).getEnrollments().get(position).getCourse().getTitle();
+        holder.enrolmentId.setText(enrloment);
+
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return studentData.size();
+    }
+
+    class StudentViewholde extends RecyclerView.ViewHolder{
+        TextView idTv,nameTv,enrolmentId;
+        public StudentViewholde(@NonNull View itemView) {
+            super(itemView);
+            idTv = itemView.findViewById(R.id.idTv);
+            nameTv = itemView.findViewById(R.id.name);
+            enrolmentId = itemView.findViewById(R.id.enrollmentDate);
+        }
+    }
+}
